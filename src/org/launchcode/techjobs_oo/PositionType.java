@@ -27,16 +27,17 @@ public class PositionType {
     // TODO: Add custom equals and hashCode methods. Consider two PositionType objects "equal" when
     //  their id fields match.
 
-    public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
-        if (!super.equals(object)) return false;
-        PositionType that = (PositionType) object;
+    @Override
+    public boolean equals(Object o) {  // Two objects are equal if they have the same id.
+        if (this == o) return true;
+        if (!(o instanceof PositionType)) return false;
+        PositionType that = (PositionType) o;
         return getId() == that.getId();
     }
 
+    @Override
     public int hashCode() {
-        return java.util.Objects.hash(super.hashCode(), getId());
+        return Objects.hash(getId());
     }
 
 
