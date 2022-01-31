@@ -1,5 +1,7 @@
 package org.launchcode.techjobs_oo;
 
+import java.util.Objects;
+
 public class Job {
 
     private int id;
@@ -86,7 +88,7 @@ public class Job {
     public boolean equals(Object o) {  // Two objects are equal if they have the same id.
         if (this == o) return true;
         if (!(o instanceof Job)) return false;
-        Job job = (Employer) o;
+        Job job = (Job) o;
         return getId() == job.getId();
     }
 
@@ -94,5 +96,5 @@ public class Job {
     public int hashCode() {
         return Objects.hash(getId());
     }
-    
+
 }
