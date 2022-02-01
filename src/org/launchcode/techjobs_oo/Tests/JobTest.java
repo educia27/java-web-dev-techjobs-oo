@@ -1,4 +1,5 @@
 package org.launchcode.techjobs_oo.Tests;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
 import org.launchcode.techjobs_oo.*;
@@ -10,6 +11,8 @@ public class JobTest {
     Job testJob;
     Job testJob2;
     Job testJob3;
+    Job testJob4;
+    Job testJob5;
 
 
     @Before
@@ -21,6 +24,9 @@ public class JobTest {
                 new Location("Desert"),
                 new PositionType("Quality control"),
                 new CoreCompetency("Persistence"));
+
+        testJob4 = new Job ("Eddy", new Employer("Harris"), new Location("Hawaii"), new PositionType("Analyst"), new CoreCompetency("Java"));
+        testJob5 = new Job ("Eddy", new Employer("Harris"), new Location("Hawaii"), new PositionType("Analyst"), new CoreCompetency("Java"));
     }
 
 //    @Test
@@ -53,6 +59,13 @@ public class JobTest {
         assertEquals(true, testJob3.getCoreCompetency() instanceof CoreCompetency);
     }
 
+    @Test
+    public void testJobsForEquality() {
+        boolean check = testJob4.equals(testJob5);
+        assertFalse(check);
+//        System.out.println("ID of testJob4 is: " + testJob4.getId());
+//        System.out.println("ID of testJob5 is: " + testJob5.getId());
+    }
 
 
 
