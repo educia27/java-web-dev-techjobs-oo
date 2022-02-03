@@ -14,10 +14,13 @@ public class JobTest {
     Job testJob5;
     Job testJob6;
     Job testJob7;
+    Job testJob8;
+    Job testJob9;
+    Job testJob10;
 
 
     @Before
-    public void testSettingJobId(){
+    public void initiatingJobs(){
         testJob = new Job();
         testJob2 = new Job();
         testJob3 = new Job("Product tester",
@@ -26,32 +29,27 @@ public class JobTest {
                 new PositionType("Quality control"),
                 new CoreCompetency("Persistence"));
 
-        testJob4 = new Job ("Eddy", new Employer("Harris"), new Location("Hawaii"), new PositionType("Analyst"), new CoreCompetency("Java"));
-        testJob5 = new Job ("Eddy", new Employer("Harris"), new Location("Hawaii"), new PositionType("Analyst"), new CoreCompetency("Java"));
-        testJob6 = new Job ("", new Employer("WeLink"), new Location("Utah"), new PositionType("Analyst"), new CoreCompetency("Java"));
-        testJob7 = new Job ("Eddy", new Employer(""), new Location("Utah"), new PositionType("Analyst"), new CoreCompetency("Java"));
+        testJob4 = new Job ("Momento", new Employer("Harris"), new Location("Hawaii"), new PositionType("Analyst"), new CoreCompetency("Ruby"));
+        testJob5 = new Job ("Alias", new Employer("Harris"), new Location("Hawaii"), new PositionType("Analyst"), new CoreCompetency("Kotlin"));
+        testJob6 = new Job ("", new Employer("WeLink"), new Location("Utah"), new PositionType("Analyst"), new CoreCompetency("Python"));
+        testJob7 = new Job ("Eddy", new Employer(""), new Location("Utah"), new PositionType("Analyst"), new CoreCompetency("JavaScript"));
+        testJob8 = new Job ("Foxtrot", new Employer("Google"), new Location(""), new PositionType("Analyst"), new CoreCompetency("Rust"));
+        testJob9 = new Job ("Tony", new Employer("Facebook"), new Location("Ivory Coast"), new PositionType(""), new CoreCompetency("GoLang"));
+        testJob10 = new Job ("Mike", new Employer("Amazon"), new Location("California"), new PositionType("Data Architect"), new CoreCompetency(""));
+    }
+
+    @Test
+    public void testSettingJobId() {
+        assertEquals(testJob.getId() + 1, testJob2.getId());
+        assertTrue(testJob2.getId() > testJob.getId());
+        assertFalse(testJob.getId() > testJob2.getId());
     }
 
 //    @Test
-//    public void testSettingJobId() {
-//        assertEquals(1,testJob.getId(),.001);
-//        assertEquals(2,testJob2.getId(),.001);
+//    public void jobIdsAreDifferent1() {
+//        assertEquals(1,testJob2.getId(),1);
 //    }
 
-    @Test
-    public void jobIdsAreDifferent1() {
-        assertEquals(1,testJob2.getId(),1);
-    }
-
-    @Test
-    public void jobIdsAreDifferent2(){
-        assertTrue(testJob2.getId() > testJob.getId());
-    }
-
-    @Test
-    public void jobIdsAreDifferent3() {
-        assertFalse(testJob.getId() > testJob2.getId());
-    }
 
     @Test
     public void testJobConstructorSetsAllFields() {
@@ -66,7 +64,6 @@ public class JobTest {
         assertEquals("Desert", testJob3.getLocation().getValue());
         assertEquals("Quality control",testJob3.getPositionType().getValue());
         assertEquals("Persistence", testJob3.getCoreCompetency().getValue());
-
 
     }
 
@@ -103,7 +100,9 @@ public class JobTest {
     public void dataNotAvailableTests() {
         assertTrue(testJob6.toString().contains("Name Data Not Available"));
         assertTrue(testJob7.toString().contains("Employer Data Not Available"));
-        System.out.println(testJob6);
+        assertTrue(testJob8.toString().contains("Location Data Not Available"));
+        assertTrue(testJob9.toString().contains("Position Type Data Not Available"));
+        assertTrue(testJob10.toString().contains("Core Competency Data Not Available"));
     }
 
 
