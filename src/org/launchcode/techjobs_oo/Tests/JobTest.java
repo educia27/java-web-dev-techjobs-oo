@@ -17,6 +17,7 @@ public class JobTest {
     Job testJob8;
     Job testJob9;
     Job testJob10;
+    Job test11;
 
 
     @Before
@@ -36,6 +37,7 @@ public class JobTest {
         testJob8 = new Job ("Foxtrot", new Employer("Google"), new Location(""), new PositionType("Analyst"), new CoreCompetency("Rust"));
         testJob9 = new Job ("Tony", new Employer("Facebook"), new Location("Ivory Coast"), new PositionType(""), new CoreCompetency("GoLang"));
         testJob10 = new Job ("Mike", new Employer("Amazon"), new Location("California"), new PositionType("Data Architect"), new CoreCompetency(""));
+        test11 = new Job();
     }
 
     @Test
