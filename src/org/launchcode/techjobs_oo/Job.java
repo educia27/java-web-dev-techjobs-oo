@@ -1,5 +1,6 @@
 package org.launchcode.techjobs_oo;
 
+
 import java.util.Objects;
 
 public class Job {
@@ -33,6 +34,37 @@ public class Job {
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
+
+    @Override
+    public String toString() {
+            String data;
+            String nameData = this.name;  //already declared as string
+            String employerData = this.getEmployer().toString(); // must be converted to strings since deriving from object
+            String locationData = this.getLocation().toString();
+            String positionTypeData = this.getPositionType().toString();
+            String coreCompetencyData = this.getCoreCompetency().toString();
+
+        if (nameData == "") {
+            nameData = " Name Data Not Available";
+        } else if (employerData == "") {
+            employerData = " Employer Data Not Available";
+        } else if (locationData == "") {
+            locationData = "Location Data Not Available";
+        } else if (positionTypeData == "") {
+            positionTypeData = "Position Type Data Not Available";
+        } else if (coreCompetencyData == "") {
+            coreCompetencyData = "Core Competency Data Not Available";
+        }
+
+        data = "\nID : " + getId() +
+                "\nName : " + nameData +
+                "\nEmployer : " + employerData +
+                "\nLocation : " + locationData +
+                "\nPosition Type : " + positionTypeData +
+                "\nCore Competency : " + coreCompetencyData + "\n";
+
+        return data;
+    }
 
 
 
@@ -82,20 +114,6 @@ public class Job {
     public int getId() {
         return id;
     }
-
-
-//    @Override
-//    public boolean equals(Object o) {  // Two objects are equal if they have the same id.
-//        if (this == o) return true;
-//        if (!(o instanceof Job)) return false;
-//        Job job = (Job) o;
-//        return getId() == job.getId();
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(getId());
-//    }
 
     @Override
     public boolean equals(Object o) {
